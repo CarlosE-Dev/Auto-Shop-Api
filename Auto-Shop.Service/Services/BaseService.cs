@@ -42,10 +42,10 @@ namespace Auto_Shop.Service.Services
 
         public virtual async Task DeleteAsync(string id)
         {
-            var entity = await GetByIdAsync(id);
+            var entity = _repository.GetByIdAsync(id);
 
             if (entity == null)
-                 throw new ValidationException($"{entity.GetType().Name} not found.");
+                 throw new Exception($"{typeof(TEntity).Name} not found.");
 
             await _repository.DeleteAsync(id);
         }
@@ -53,7 +53,7 @@ namespace Auto_Shop.Service.Services
         private void Validate(TEntity entity, AbstractValidator<TEntity> validator)
         {
             if (entity == null)
-                throw new ValidationException($"{entity.GetType().Name} not found.");
+                throw new Exception($"{typeof(TEntity).Name} not found.");
 
             validator.ValidateAndThrow(entity);
         }
