@@ -1,0 +1,12 @@
+C:\Dev\Auto-Shop\Auto-Shop.Domain\bin\Debug\net5.0\Auto-Shop.Domain.deps.json
+C:\Dev\Auto-Shop\Auto-Shop.Domain\bin\Debug\net5.0\Auto-Shop.Domain.dll
+C:\Dev\Auto-Shop\Auto-Shop.Domain\bin\Debug\net5.0\Auto-Shop.Domain.pdb
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\Auto-Shop.Domain.csproj.AssemblyReference.cache
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\Auto-Shop.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\Auto-Shop.Domain.AssemblyInfoInputs.cache
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\Auto-Shop.Domain.AssemblyInfo.cs
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\Auto-Shop.Domain.csproj.CoreCompileInputs.cache
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\Auto-Shop.Domain.dll
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\refint\Auto-Shop.Domain.dll
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\Auto-Shop.Domain.pdb
+C:\Dev\Auto-Shop\Auto-Shop.Domain\obj\Debug\net5.0\ref\Auto-Shop.Domain.dll

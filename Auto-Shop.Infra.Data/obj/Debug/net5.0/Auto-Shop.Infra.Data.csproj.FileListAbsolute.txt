@@ -1,0 +1,15 @@
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\bin\Debug\net5.0\Auto-Shop.Infra.Data.deps.json
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\bin\Debug\net5.0\Auto-Shop.Infra.Data.dll
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\bin\Debug\net5.0\Auto-Shop.Infra.Data.pdb
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\bin\Debug\net5.0\Auto-Shop.Domain.dll
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\bin\Debug\net5.0\Auto-Shop.Domain.pdb
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\Auto-Shop.Infra.Data.csproj.AssemblyReference.cache
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\Auto-Shop.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\Auto-Shop.Infra.Data.AssemblyInfoInputs.cache
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\Auto-Shop.Infra.Data.AssemblyInfo.cs
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\Auto-Shop.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\Auto-Shop.Infra.Data.csproj.CopyComplete
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\Auto-Shop.Infra.Data.dll
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\refint\Auto-Shop.Infra.Data.dll
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\Auto-Shop.Infra.Data.pdb
+C:\Dev\Auto-Shop\Auto-Shop.Infra.Data\obj\Debug\net5.0\ref\Auto-Shop.Infra.Data.dll
