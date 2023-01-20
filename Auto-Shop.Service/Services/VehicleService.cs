@@ -1,5 +1,7 @@
 ﻿using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Auto_Shop.Service.Services
 {
@@ -11,6 +13,11 @@ namespace Auto_Shop.Service.Services
         {
             _vehicleRepository = vehicleRepository;
             _repository = repository;
+        }
+
+        public override async Task<IEnumerable<Vehicle>> GetAllAsync()
+        {
+            return await _vehicleRepository.GetAllAsync();
         }
     }
 }

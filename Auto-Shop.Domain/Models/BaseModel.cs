@@ -10,7 +10,7 @@ namespace Auto_Shop.Domain.Models
             CreatedOn = DateTime.Now;
         }
 
-        public string Id { get; private set; }
+        public string Id { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 }

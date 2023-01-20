@@ -32,6 +32,8 @@ namespace Auto_Shop.Application
             // DI 
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+            services.AddScoped<IVehicleService, VehicleService>();
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

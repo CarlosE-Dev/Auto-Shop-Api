@@ -16,20 +16,42 @@ namespace Auto_Shop.Infra.Data.Mappings
                     .IsRequired()
                         .HasMaxLength(255);
 
-            builder.Property(p => p.Brand)
-                    .IsRequired()
-                        .HasMaxLength(100);
+            builder.Property(p => p.BrandId)
+                    .IsRequired();
 
             builder.Property(p => p.Year)
                     .IsRequired()
-                        .HasMaxLength(4);
+                        .HasMaxLength(9);
 
             builder.Property(p => p.Model)
                     .IsRequired()
                         .HasMaxLength(50);
 
+            // TODO: insert a generic link for no img
+
             builder.Property(p => p.ImageUrl)
-                    .HasMaxLength(500);
+                    .HasMaxLength(500)
+                        .HasDefaultValue("http://");
+
+            builder.Property(p => p.City)
+                    .IsRequired()
+                        .HasMaxLength(100);
+
+            builder.Property(p => p.State)
+                    .IsRequired()
+                        .HasMaxLength(2);
+
+            builder.Property(p => p.Km)
+                    .IsRequired()
+                        .HasMaxLength(9);
+
+            builder.Property(p => p.Price)
+                    .IsRequired();
+
+            builder.HasOne(p => p.Brand)
+                    .WithMany(p => p.Vehicles)
+                        .HasForeignKey(k => k.BrandId)
+                            .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

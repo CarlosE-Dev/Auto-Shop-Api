@@ -67,3 +67,5 @@ C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\refint\Auto-Shop.Applica
 C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\Auto-Shop.Application.pdb
 C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\Auto-Shop.Application.genruntimeconfig.cache
 C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\ref\Auto-Shop.Application.dll
+C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Humanizer.dll
+C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
