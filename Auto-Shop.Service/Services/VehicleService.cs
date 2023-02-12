@@ -1,5 +1,6 @@
 ﻿using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
+using Auto_Shop.Domain.Models.DTOs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -15,9 +16,19 @@ namespace Auto_Shop.Service.Services
             _repository = repository;
         }
 
-        public override async Task<IEnumerable<Vehicle>> GetAllAsync()
+        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync()
         {
-            return await _vehicleRepository.GetAllAsync();
+            return await _vehicleRepository.GetAllVehiclesAsync();
+        }
+
+        public async Task<VehicleDTO> GetVehicleByIdAsync(string id)
+        {
+            return await _vehicleRepository.GetVehicleByIdAsync(id);
+        }
+
+        public async Task<VehicleDTO> CreateVehicleAsync(Vehicle vehicle)
+        {
+
         }
     }
 }

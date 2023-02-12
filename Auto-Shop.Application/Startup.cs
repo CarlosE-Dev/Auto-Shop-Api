@@ -1,8 +1,9 @@
 using Auto_Shop.Domain.Interfaces;
-using Auto_Shop.Domain.Models;
 using Auto_Shop.Infra.Data.Context;
 using Auto_Shop.Infra.Data.Repositories;
+using Auto_Shop.Service.AutoMapper;
 using Auto_Shop.Service.Services;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace Auto_Shop.Application
 {
@@ -28,12 +30,17 @@ namespace Auto_Shop.Application
             services.AddDbContext<AutoShopContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-
             // DI 
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+
+            // AutoMapper Config
+            services.AddAutoMapper(typeof(AutoMapperProfile));
+            services.AddMediatR(typeof(BaseService<>).GetTypeInfo().Assembly);
+
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

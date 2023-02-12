@@ -47,6 +47,18 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -174,6 +186,9 @@
             "projectReferences": {
               "C:\\Dev\\Auto-Shop\\Auto-Shop.Domain\\Auto-Shop.Domain.csproj": {
                 "projectPath": "C:\\Dev\\Auto-Shop\\Auto-Shop.Domain\\Auto-Shop.Domain.csproj"
+              },
+              "C:\\Dev\\Auto-Shop\\Auto-Shop.Service\\Auto-Shop.Service.csproj": {
+                "projectPath": "C:\\Dev\\Auto-Shop\\Auto-Shop.Service\\Auto-Shop.Service.csproj"
               }
             }
           }
@@ -260,9 +275,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.2.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.1.0, )"
             }
           },
           "imports": [

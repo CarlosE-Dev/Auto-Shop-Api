@@ -1,6 +1,7 @@
 ﻿using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
 using Auto_Shop.Infra.Data.Context;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,19 @@ namespace Auto_Shop.Infra.Data.Repositories
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseModel
     {
         protected readonly AutoShopContext _context;
+        protected readonly IMapper _mapper;
 
-        public BaseRepository(AutoShopContext context)
+        public BaseRepository(AutoShopContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public virtual Task<TEntity> CreateAsync(TEntity entity)
+        public async virtual Task<TEntity> CreateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            await _context.Set<TEntity>().AddAsync(entity);
+            await SaveChangesAsync();
+            return await GetByIdAsync(entity.Id);
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
@@ -32,9 +37,8 @@ namespace Auto_Shop.Infra.Data.Repositories
             return await _context.Set<TEntity>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public virtual Task UpdateAsync(TEntity entity)
+        public virtual async Task UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
         }
 
         public async virtual Task DeleteAsync(string id)

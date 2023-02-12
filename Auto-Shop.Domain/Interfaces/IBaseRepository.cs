@@ -9,7 +9,7 @@ namespace Auto_Shop.Domain.Interfaces
         Task<TEntity> CreateAsync(TEntity entity);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<TEntity> GetByIdAsync(string id);
-        Task UpdateAsync(TEntity entity); 
+        Task UpdateAsync(TEntity entity);
         Task DeleteAsync(string id);
         Task<int> SaveChangesAsync();
     }

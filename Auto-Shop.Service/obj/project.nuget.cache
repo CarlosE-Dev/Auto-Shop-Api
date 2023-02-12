@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "W3zUSBh5g8kepdpCXzQ5tGiiz7cM5pkjhJ3NtG1IQY/5aip54P8V5fdkpeObpxCC299Gd+YNh1aVHyKPJgv/cg==",
+  "dgSpecHash": "7HYYkKdvTK+MmBhocui16yZBDfARnKObfZbuSZ7li6D6nU9si5zioiSK6AUVr9fCkJny0HW5GXt8dTh51ubAEQ==",
   "success": true,
   "projectFilePath": "C:\\Dev\\Auto-Shop\\Auto-Shop.Service\\Auto-Shop.Service.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Carlos\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
   ],
   "logs": []

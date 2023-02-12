@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "U97SkgxnMJx9tmNASzTwgjc1jPMPLtjVIUKbtzRNfvijbCJ2xardLk/hncOmQMLPSXVhdtrPKu439Q/Z6QLjVQ==",
+  "dgSpecHash": "LC8QlGzgJxkLotvSx7xefSZQmYkdCJRPW+V6A6s3IrgvS5XuRQzweanBjWEwky8K6EQw+MwvQzL3sGdv+kGezg==",
   "success": true,
   "projectFilePath": "C:\\Dev\\Auto-Shop\\Auto-Shop.Infra.Data\\Auto-Shop.Infra.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Carlos\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
-    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
     "C:\\Users\\Carlos\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.17\\microsoft.entityframeworkcore.5.0.17.nupkg.sha512",
