@@ -30,11 +30,21 @@ namespace Auto_Shop.Service.Services
 
         public virtual async Task<TEntity> GetByIdAsync(string id)
         {
-            return await _repository.GetByIdAsync(id);
+            var entity = await _repository.GetByIdAsync(id);
+
+            if (entity == null)
+                throw new Exception($"{typeof(TEntity).Name} not found.");
+
+            return entity;
         }
 
         public virtual async Task UpdateAsync<TValidator>(TEntity entity) where TValidator : AbstractValidator<TEntity>
         {
+            var entityExists = await GetByIdAsync(entity.Id);
+
+            if (entityExists == null)
+                throw new Exception($"{typeof(TEntity).Name} not found.");
+
             Validate(entity, Activator.CreateInstance<TValidator>());
 
             await _repository.UpdateAsync(entity);
@@ -42,15 +52,15 @@ namespace Auto_Shop.Service.Services
 
         public virtual async Task DeleteAsync(string id)
         {
-            var entity = _repository.GetByIdAsync(id);
+            var entityExists = await GetByIdAsync(id);
 
-            if (entity == null)
+            if (entityExists == null)
                  throw new Exception($"{typeof(TEntity).Name} not found.");
 
             await _repository.DeleteAsync(id);
         }
 
-        private void Validate(TEntity entity, AbstractValidator<TEntity> validator)
+        protected void Validate(TEntity entity, AbstractValidator<TEntity> validator)
         {
             if (entity == null)
                 throw new Exception($"{typeof(TEntity).Name} not found.");

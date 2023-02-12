@@ -7,6 +7,7 @@ namespace Auto_Shop.Domain.Interfaces
 {
     public interface IVehicleRepository : IBaseRepository<Vehicle>
     {
+        Task<VehicleDTO> CreateVehicleAsync(Vehicle vehicle);
         Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync();
         Task<VehicleDTO> GetVehicleByIdAsync(string id);
     }

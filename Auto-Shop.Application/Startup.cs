@@ -25,12 +25,14 @@ namespace Auto_Shop.Application
         public void ConfigureServices(IServiceCollection services)
         {
 
+            // TODO: Create configurations folder and separate each one
+
             // DB
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AutoShopContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-            // DI 
+            // DI
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped<IVehicleService, VehicleService>();

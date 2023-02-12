@@ -9,8 +9,13 @@ namespace Auto_Shop.Service.AutoMapper
     {
         public AutoMapperProfile()
         {
-            CreateMap<VehicleDTO, Vehicle>().ReverseMap();
-            CreateMap<CreateVehicleCommand, Vehicle>().ReverseMap();
+            #region Vehicle
+
+            CreateMap<Vehicle, VehicleDTO>().ReverseMap();
+            CreateMap<Vehicle, CreateVehicleCommand>().ReverseMap();
+            CreateMap<Vehicle, UpdateVehicleCommand>().ReverseMap();
+
+            #endregion
         }
     }
 }

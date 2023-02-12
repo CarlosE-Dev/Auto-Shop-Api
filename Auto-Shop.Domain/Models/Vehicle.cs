@@ -12,8 +12,5 @@
         public string City { get; set; }
         public string State { get; set; }
         public Brand Brand { get; set; }
-
-        // TODO: Create DTO
-        public string BrandName { get; set; }
     }
 }

@@ -7,10 +7,10 @@ namespace Auto_Shop.Domain.Models
         public BaseModel()
         {
             Id = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8);
-            CreatedOn = DateTime.Now;
+            ModifiedOn = DateTime.Now;
         }
 
         public string Id { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public DateTime ModifiedOn { get; set; }
     }
 }

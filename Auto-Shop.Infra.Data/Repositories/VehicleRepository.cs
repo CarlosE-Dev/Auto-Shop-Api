@@ -35,7 +35,7 @@ namespace Auto_Shop.Infra.Data.Repositories
                             Price = v.Price,
                             ImageUrl = v.ImageUrl,
                             Year = v.Year,
-                            CreatedOn = v.CreatedOn,
+                            ModifiedOn = v.ModifiedOn,
                             State = v.State,
                             BrandId = b.Id
                         }
@@ -45,28 +45,15 @@ namespace Auto_Shop.Infra.Data.Repositories
 
         public async Task<VehicleDTO> GetVehicleByIdAsync(string id)
         {
-            return await _context.Set<Vehicle>().AsNoTracking().OrderBy(p => p.Price)
-                .Join(
-                    _context.Brands,
-                    v => v.BrandId,
-                    b => b.Id,
-                    (v, b) =>
-                        new VehicleDTO()
-                        {
-                            Id = v.Id,
-                            Name = v.Name,
-                            BrandName = b.Name,
-                            City = v.Name,
-                            Km = v.Km,
-                            Model = v.Model,
-                            Price = v.Price,
-                            ImageUrl = v.ImageUrl,
-                            Year = v.Year,
-                            CreatedOn = v.CreatedOn,
-                            State = v.State,
-                            BrandId = b.Id
-                        }
-                ).FirstOrDefaultAsync(v => v.Id == id);
+            var vehicles = await GetAllVehiclesAsync();
+            return vehicles.FirstOrDefault(v => v.Id == id);
+        }
+
+        public async Task<VehicleDTO> CreateVehicleAsync(Vehicle vehicle)
+        {
+            _context.Set<Vehicle>().Add(vehicle);
+            await SaveChangesAsync();
+            return await GetVehicleByIdAsync(vehicle.Id);
         }
     }
 }

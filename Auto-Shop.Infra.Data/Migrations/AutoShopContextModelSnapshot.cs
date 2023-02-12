@@ -22,9 +22,6 @@ namespace Auto_Shop.Infra.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(1000)
@@ -33,6 +30,9 @@ namespace Auto_Shop.Infra.Data.Migrations
                     b.Property<string>("ImageUrl")
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -46,42 +46,42 @@ namespace Auto_Shop.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "42cebc4a",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(629),
+                            Id = "4b6dd8c1",
                             Description = "Ford Motor Company is an American multinational automobile manufacturer.",
                             ImageUrl = "http://site.com.br",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(219),
                             Name = "Ford"
                         },
                         new
                         {
-                            Id = "5df6d900",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(1361),
+                            Id = "1853cee3",
                             Description = "Honda Motor Co., Ltd. is a Japanese public multinational conglomerate manufacturer of automobiles.",
                             ImageUrl = "http://site.com.br",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(930),
                             Name = "Honda"
                         },
                         new
                         {
-                            Id = "e91aff9b",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(1368),
+                            Id = "86604869",
                             Description = "Toyota Motor Corporation is a Japanese multinational automotive manufacturer headquartered in Toyota City, Aichi, Japan.",
                             ImageUrl = "http://site.com.br",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(938),
                             Name = "Toyota"
                         },
                         new
                         {
-                            Id = "cea2e390",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(1372),
+                            Id = "c554577b",
                             Description = "Fiat Automobiles S.p.A. is an Italian automobile manufacturer, formerly part of Fiat Chrysler Automobiles.",
                             ImageUrl = "http://site.com.br",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(942),
                             Name = "Fiat"
                         },
                         new
                         {
-                            Id = "ed218cbd",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(1388),
+                            Id = "917f79ac",
                             Description = "Volkswagen AG, known internationally as the Volkswagen Group, is a German multinational automotive manufacturer.",
                             ImageUrl = "http://site.com.br",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(945),
                             Name = "Volkswagen"
                         });
                 });
@@ -95,16 +95,10 @@ namespace Auto_Shop.Infra.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("BrandName")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("ImageUrl")
                         .ValueGeneratedOnAdd()
@@ -121,6 +115,9 @@ namespace Auto_Shop.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -149,13 +146,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b3a14b02",
-                            BrandId = "42cebc4a",
+                            Id = "19c87903",
+                            BrandId = "4b6dd8c1",
                             City = "São Paulo",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(1560),
                             ImageUrl = "http://site.com.br",
                             Km = "69.752",
                             Model = "Sedan",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(1111),
                             Name = "Ford Focus",
                             Price = 62.900m,
                             State = "SP",
@@ -163,13 +160,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "ae184287",
-                            BrandId = "5df6d900",
+                            Id = "f8eafeb1",
+                            BrandId = "1853cee3",
                             City = "Rio de Janeiro",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(3173),
                             ImageUrl = "http://site.com.br",
                             Km = "54.000",
                             Model = "Sedan",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(2777),
                             Name = "Honda Civic",
                             Price = 135.000m,
                             State = "RJ",
@@ -177,13 +174,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "a886df53",
-                            BrandId = "e91aff9b",
+                            Id = "48fec4df",
+                            BrandId = "86604869",
                             City = "Niterói",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(3181),
                             ImageUrl = "http://site.com.br",
                             Km = "111.040",
                             Model = "Sedã",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(2786),
                             Name = "Toyota Corolla",
                             Price = 71.900m,
                             State = "RJ",
@@ -191,13 +188,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "cf5d60b9",
-                            BrandId = "cea2e390",
+                            Id = "d4250daf",
+                            BrandId = "c554577b",
                             City = "Santos",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(3186),
                             ImageUrl = "http://site.com.br",
                             Km = "82.000",
                             Model = "Hatchback",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(2791),
                             Name = "Fiat Uno",
                             Price = 42.990m,
                             State = "SP",
@@ -205,13 +202,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "0b0892c5",
-                            BrandId = "ed218cbd",
+                            Id = "630b0ab8",
+                            BrandId = "917f79ac",
                             City = "Brasília",
-                            CreatedOn = new DateTime(2023, 1, 20, 20, 38, 53, 163, DateTimeKind.Local).AddTicks(3190),
                             ImageUrl = "http://site.com.br",
                             Km = "23.652",
                             Model = "Sport Utility",
+                            ModifiedOn = new DateTime(2023, 2, 12, 15, 13, 41, 603, DateTimeKind.Local).AddTicks(2795),
                             Name = "Volkswagen Nivus",
                             Price = 121.000m,
                             State = "DF",

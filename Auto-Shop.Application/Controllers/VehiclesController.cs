@@ -2,6 +2,7 @@
 using Auto_Shop.Domain.Models;
 using Auto_Shop.Domain.Models.DTOs;
 using Auto_Shop.Service.Commands.VehicleCommands;
+using Auto_Shop.Service.Queries.VehicleQueries;
 using Auto_Shop.Service.Validators;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,33 +24,43 @@ namespace Auto_Shop.Application.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("create", Name = "CreateNewVehicle")]
+        [HttpPost("new", Name = "CreateNewVehicle")]
         [Produces(typeof(VehicleDTO))]
         public async Task<IActionResult> CreateNewVehicle([FromBody] CreateVehicleCommand command)
         {
             return Created("", await _mediator.Send(command));
         }
 
-        [HttpGet("catalog", Name = "GetAllVehicles")]
+        [HttpPost("catalog", Name = "GetAllVehicles")]
         [Produces(typeof(IEnumerable<VehicleDTO>))]
-        public async Task<IActionResult> GetAllVehicles()
+        public async Task<IActionResult> GetAllVehicles([FromBody] GetAllVehiclesQuery query)
         {
-            return Ok(await _service.GetAllVehiclesAsync());
+            return Ok(await _mediator.Send(query));
+        }
+
+        [HttpPost("catalog/{id}", Name = "GetVehicleById")]
+        [Produces(typeof(VehicleDTO))]
+        public async Task<IActionResult> GetVehicleById([FromBody] GetVehicleByIdQuery query, [FromRoute] string id)
+        {
+            query.Id = id;
+            return Ok(await _mediator.Send(query));
         }
 
         [HttpPut("update/{id}", Name = "UpdateVehicle")]
         [Produces(typeof(IEnumerable<Vehicle>))]
-        public async Task<IActionResult> UpdateVehicle([FromBody] Vehicle vehicle)
+        public async Task<IActionResult> UpdateVehicle([FromBody] UpdateVehicleCommand command, [FromRoute] string id)
         {
-            await _service.UpdateAsync<VehicleValidator>(vehicle);
+            command.Id = id;
+            await _mediator.Send(command);
             return NoContent();
         }
 
         [HttpPut("delete/{id}", Name = "DeleteVehicle")]
         [Produces(typeof(IEnumerable<Vehicle>))]
-        public async Task<IActionResult> DeleteVehicle([FromRoute] string id)
+        public async Task<IActionResult> DeleteVehicle([FromBody] DeleteVehicleCommand command, [FromRoute] string id)
         {
-            await _service.DeleteAsync(id);
+            command.Id = id;
+            await _mediator.Send(command);
             return NoContent();
         }
     }

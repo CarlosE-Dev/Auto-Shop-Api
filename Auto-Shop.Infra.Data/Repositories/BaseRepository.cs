@@ -22,7 +22,7 @@ namespace Auto_Shop.Infra.Data.Repositories
 
         public async virtual Task<TEntity> CreateAsync(TEntity entity)
         {
-            await _context.Set<TEntity>().AddAsync(entity);
+            _context.Set<TEntity>().Add(entity);
             await SaveChangesAsync();
             return await GetByIdAsync(entity.Id);
         }
@@ -39,6 +39,8 @@ namespace Auto_Shop.Infra.Data.Repositories
 
         public virtual async Task UpdateAsync(TEntity entity)
         {
+            _context.Set<TEntity>().Update(entity);
+            await SaveChangesAsync();
         }
 
         public async virtual Task DeleteAsync(string id)
