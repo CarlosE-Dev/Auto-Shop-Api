@@ -1,4 +1,5 @@
-﻿using Auto_Shop.Domain.Interfaces;
+﻿using Auto_Shop.Domain.Enums;
+using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
 using Auto_Shop.Domain.Models.DTOs;
 using Auto_Shop.Infra.Data.Context;
@@ -16,19 +17,25 @@ namespace Auto_Shop.Infra.Data.Repositories
         {
         }
 
-        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync()
+        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string orderBy, EOrderType? orderType = null)
         {
-            return await _context.Set<Vehicle>().AsNoTracking().OrderBy(p => p.Price)
+            if (string.IsNullOrWhiteSpace(orderBy))
+                orderBy = "Price";
+
+            if (orderType == null)
+                orderType = EOrderType.Asc;
+
+            var result = await _context.Set<Vehicle>().AsNoTracking()
                 .Join(
                     _context.Brands,
                     v => v.BrandId,
-                    b => b.Id, 
+                    b => b.Id,
                     (v, b) =>
                         new VehicleDTO()
                         {
                             Id = v.Id,
                             Name = v.Name,
-                            BrandName = b.Name, 
+                            BrandName = b.Name,
                             City = v.Name,
                             Km = v.Km,
                             Model = v.Model,
@@ -39,13 +46,34 @@ namespace Auto_Shop.Infra.Data.Repositories
                             State = v.State,
                             BrandId = b.Id
                         }
-                )
-                .ToListAsync();
+                ).ToListAsync();
+
+            if (orderType == EOrderType.Asc)
+                result = result.OrderBy(p => EF.Property<string>(p, orderBy)).ToList();
+
+            if (orderType == EOrderType.Desc)
+                result = result.OrderByDescending(p => EF.Property<string>(p, orderBy)).ToList();
+
+            return result;
+        }
+
+        public async Task<IEnumerable<VehicleDTO>> GetVehiclesByBrand(string brand)
+        {
+            var result = await GetAllVehiclesAsync("BrandName", EOrderType.Asc);
+
+            return result.Where(b => b.BrandName == brand);
+        }
+
+        public async Task<IEnumerable<VehicleDTO>> FilterVehiclesByName(string query)
+        {
+            var result = await GetAllVehiclesAsync("Name", EOrderType.Asc);
+
+            return result.Where(b => b.Name.Contains(query));
         }
 
         public async Task<VehicleDTO> GetVehicleByIdAsync(string id)
         {
-            var vehicles = await GetAllVehiclesAsync();
+            var vehicles = await GetAllVehiclesAsync("", null);
             return vehicles.FirstOrDefault(v => v.Id == id);
         }
 

@@ -1,9 +1,7 @@
-﻿using Auto_Shop.Domain.Interfaces;
-using Auto_Shop.Domain.Models;
+﻿using Auto_Shop.Domain.Models;
 using Auto_Shop.Domain.Models.DTOs;
 using Auto_Shop.Service.Commands.VehicleCommands;
 using Auto_Shop.Service.Queries.VehicleQueries;
-using Auto_Shop.Service.Validators;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -15,12 +13,10 @@ namespace Auto_Shop.Application.Controllers
     [ApiController]
     public class VehiclesController : ControllerBase
     {
-        private readonly IVehicleService _service;
         private readonly IMediator _mediator;
 
-        public VehiclesController(IVehicleService service, IMediator mediator)
+        public VehiclesController (IMediator mediator)
         {
-            _service = service;
             _mediator = mediator;
         }
 

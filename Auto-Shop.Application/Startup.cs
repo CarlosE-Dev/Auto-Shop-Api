@@ -1,6 +1,5 @@
-using Auto_Shop.Domain.Interfaces;
+using Auto_Shop.Application.Configurations;
 using Auto_Shop.Infra.Data.Context;
-using Auto_Shop.Infra.Data.Repositories;
 using Auto_Shop.Service.AutoMapper;
 using Auto_Shop.Service.Services;
 using MediatR;
@@ -24,25 +23,31 @@ namespace Auto_Shop.Application
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+            #region DbContext Config
 
-            // TODO: Create configurations folder and separate each one
-
-            // DB
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AutoShopContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-            // DI
-            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
-            services.AddScoped<IVehicleService, VehicleService>();
-            services.AddScoped<IVehicleRepository, VehicleRepository>();
+            #endregion
 
-            // AutoMapper Config
+            #region DI Configuration
+
+            services.ResolveDependencies();
+
+            #endregion
+
+            #region AutoMapper Config
+
             services.AddAutoMapper(typeof(AutoMapperProfile));
+
+            #endregion
+
+            #region MediatR Config
+
             services.AddMediatR(typeof(BaseService<>).GetTypeInfo().Assembly);
 
-
+            #endregion
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -63,7 +68,21 @@ namespace Auto_Shop.Application
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            #region CORS Config
+
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
+                .AllowCredentials());
+
+            #endregion
+
+            #region Globalization Config
+
+            app.ConfigureGlobalization();
+
+            #endregion
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,4 +1,5 @@
-﻿using Auto_Shop.Domain.Interfaces;
+﻿using Auto_Shop.Domain.Enums;
+using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
 using Auto_Shop.Domain.Models.DTOs;
 using Auto_Shop.Service.Validators;
@@ -19,9 +20,9 @@ namespace Auto_Shop.Service.Services
             _repository = repository;
         }
 
-        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync()
+        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string sortBy, EOrderType? orderType = null)
         {
-            return await _vehicleRepository.GetAllVehiclesAsync();
+            return await _vehicleRepository.GetAllVehiclesAsync(sortBy, orderType);
         }
 
         public async Task<VehicleDTO> GetVehicleByIdAsync(string id)
