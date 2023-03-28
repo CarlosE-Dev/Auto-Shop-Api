@@ -8,8 +8,9 @@ namespace Auto_Shop.Domain.Interfaces
 {
     public interface IVehicleService : IBaseService<Vehicle>
     {
-        Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string orderBy, EOrderType? orderType = null);
+        Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string orderBy, VehicleFilters filters);
         Task<VehicleDTO> CreateVehicleAsync(Vehicle vehicle);
         Task<VehicleDTO> GetVehicleByIdAsync(string id);
+        Task UpdateVehicleAsync(Vehicle updatedModel);
     }
 }

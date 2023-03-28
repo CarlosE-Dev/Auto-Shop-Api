@@ -2,6 +2,7 @@
 using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
 using Auto_Shop.Domain.Models.DTOs;
+using Auto_Shop.Infra.CrossCutting.Helpers;
 using Auto_Shop.Service.Validators;
 using FluentValidation;
 using System;
@@ -20,9 +21,9 @@ namespace Auto_Shop.Service.Services
             _repository = repository;
         }
 
-        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string sortBy, EOrderType? orderType = null)
+        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string orderBy, VehicleFilters filters)
         {
-            return await _vehicleRepository.GetAllVehiclesAsync(sortBy, orderType);
+            return await _vehicleRepository.GetAllVehiclesAsync(orderBy, filters);
         }
 
         public async Task<VehicleDTO> GetVehicleByIdAsync(string id)

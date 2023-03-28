@@ -2,9 +2,13 @@
 using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
 using Auto_Shop.Domain.Models.DTOs;
+using Auto_Shop.Infra.CrossCutting.Helpers;
 using Auto_Shop.Infra.Data.Context;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Mysqlx.Crud;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,15 +21,15 @@ namespace Auto_Shop.Infra.Data.Repositories
         {
         }
 
-        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string orderBy, EOrderType? orderType = null)
+        public async Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string orderBy, VehicleFilters filters)
         {
-            if (string.IsNullOrWhiteSpace(orderBy))
+            if (String.IsNullOrWhiteSpace(orderBy))
                 orderBy = "Price";
+            else
+                StringHelpers.TransformToCamelCase(orderBy);
 
-            if (orderType == null)
-                orderType = EOrderType.Asc;
 
-            var result = await _context.Set<Vehicle>().AsNoTracking()
+            var result = await _context.Set<Vehicle>().AsNoTracking().OrderBy(p => EF.Property<string>(p, orderBy))
                 .Join(
                     _context.Brands,
                     v => v.BrandId,
@@ -48,33 +52,45 @@ namespace Auto_Shop.Infra.Data.Repositories
                         }
                 ).ToListAsync();
 
-            if (orderType == EOrderType.Asc)
-                result = result.OrderBy(p => EF.Property<string>(p, orderBy)).ToList();
+            if (filters != null)
+            {
+                if (!string.IsNullOrEmpty(filters.FilterByBrandName))
+                {
+                    StringHelpers.TransformToCamelCase(filters.FilterByBrandName);
+                    result = result.Where(x => x.BrandName == filters.FilterByBrandName).ToList();
+                }
 
-            if (orderType == EOrderType.Desc)
-                result = result.OrderByDescending(p => EF.Property<string>(p, orderBy)).ToList();
+                if (!string.IsNullOrEmpty(filters.FilterByVehicleName))
+                {
+                    StringHelpers.TransformToCamelCase(filters.FilterByVehicleName);
+                    result = result.Where(x => x.Name.Contains(filters.FilterByVehicleName)).ToList();
+                }
+
+                if (filters.Pagination != null) 
+                {
+                    if (filters.Pagination.Page == 0)
+                        filters.Pagination.Page = 1;
+
+                    if (filters.Pagination.PageLimit == 0)
+                        filters.Pagination.PageLimit = int.MaxValue;
+
+                    var skip = (filters.Pagination.Page - 1) * filters.Pagination.PageLimit;
+
+                    result = result
+                        .Skip(skip)
+                        .Take(filters.Pagination.PageLimit)
+                        .ToList();
+                }
+            }
 
             return result;
-        }
-
-        public async Task<IEnumerable<VehicleDTO>> GetVehiclesByBrand(string brand)
-        {
-            var result = await GetAllVehiclesAsync("BrandName", EOrderType.Asc);
-
-            return result.Where(b => b.BrandName == brand);
-        }
-
-        public async Task<IEnumerable<VehicleDTO>> FilterVehiclesByName(string query)
-        {
-            var result = await GetAllVehiclesAsync("Name", EOrderType.Asc);
-
-            return result.Where(b => b.Name.Contains(query));
         }
 
         public async Task<VehicleDTO> GetVehicleByIdAsync(string id)
         {
             var vehicles = await GetAllVehiclesAsync("", null);
-            return vehicles.FirstOrDefault(v => v.Id == id);
+
+            return vehicles.Where(v => v.Id == id).FirstOrDefault();
         }
 
         public async Task<VehicleDTO> CreateVehicleAsync(Vehicle vehicle)

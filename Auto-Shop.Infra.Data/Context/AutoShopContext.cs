@@ -9,6 +9,8 @@ namespace Auto_Shop.Infra.Data.Context
 
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -18,21 +20,31 @@ namespace Auto_Shop.Infra.Data.Context
             #region Initial Data For DB
 
             modelBuilder.Entity<Brand>()
-            .HasData(
-                AutoShopDbSeeder.Ford, 
-                AutoShopDbSeeder.Honda, 
-                AutoShopDbSeeder.Toyota, 
-                AutoShopDbSeeder.Fiat, 
-                AutoShopDbSeeder.Volkswagen
+                .HasData(
+                    AutoShopDbSeeder.Ford, 
+                    AutoShopDbSeeder.Honda, 
+                    AutoShopDbSeeder.Toyota, 
+                    AutoShopDbSeeder.Fiat, 
+                    AutoShopDbSeeder.Volkswagen
                 );
 
             modelBuilder.Entity<Vehicle>()
-            .HasData(
-                AutoShopDbSeeder.Focus,
-                AutoShopDbSeeder.Civic,
-                AutoShopDbSeeder.Corolla,
-                AutoShopDbSeeder.Uno,
-                AutoShopDbSeeder.Nivus
+                .HasData(
+                    AutoShopDbSeeder.Focus,
+                    AutoShopDbSeeder.Civic,
+                    AutoShopDbSeeder.Corolla,
+                    AutoShopDbSeeder.Uno,
+                    AutoShopDbSeeder.Nivus
+                );
+
+            modelBuilder.Entity<Role>()
+                .HasData(
+                    AutoShopDbSeeder.RoleAdmin
+                );
+
+            modelBuilder.Entity<User>()
+                .HasData(
+                    AutoShopDbSeeder.UserAdmnistrator
                 );
 
             #endregion

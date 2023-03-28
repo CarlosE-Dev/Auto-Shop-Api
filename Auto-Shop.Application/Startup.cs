@@ -23,37 +23,14 @@ namespace Auto_Shop.Application
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            #region DbContext Config
-
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<AutoShopContext>(options =>
-                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-
-            #endregion
-
-            #region DI Configuration
-
+            services.ConfigureSwaggerGen();
+            services.ConfigureAuthentication();
+            services.ConfigureDbContext(Configuration);
             services.ResolveDependencies();
-
-            #endregion
-
-            #region AutoMapper Config
-
             services.AddAutoMapper(typeof(AutoMapperProfile));
-
-            #endregion
-
-            #region MediatR Config
-
             services.AddMediatR(typeof(BaseService<>).GetTypeInfo().Assembly);
 
-            #endregion
-
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Auto_Shop.Application", Version = "v1" });
-            });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -65,24 +42,17 @@ namespace Auto_Shop.Application
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            #region CORS Config
+            app.ConfigureGlobalization();
 
             app.UseCors(x => x
                 .AllowAnyMethod()
-                .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true)
-                .AllowCredentials());
+                    .AllowAnyHeader()
+                        .SetIsOriginAllowed(origin => true)
+                            .AllowCredentials());
 
-            #endregion
-
-            #region Globalization Config
-
-            app.ConfigureGlobalization();
-
-            #endregion
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

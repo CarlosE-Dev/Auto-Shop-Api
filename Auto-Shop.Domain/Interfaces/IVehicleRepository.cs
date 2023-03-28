@@ -9,9 +9,7 @@ namespace Auto_Shop.Domain.Interfaces
     public interface IVehicleRepository : IBaseRepository<Vehicle>
     {
         Task<VehicleDTO> CreateVehicleAsync(Vehicle vehicle);
-        Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string orderBy, EOrderType? orderType = null);
+        Task<IEnumerable<VehicleDTO>> GetAllVehiclesAsync(string orderBy, VehicleFilters filters);
         Task<VehicleDTO> GetVehicleByIdAsync(string id);
-        Task<IEnumerable<VehicleDTO>> GetVehiclesByBrand(string brand);
-        Task<IEnumerable<VehicleDTO>> FilterVehiclesByName(string query);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Auto_Shop.Domain.Enums;
 using Auto_Shop.Domain.Interfaces;
+using Auto_Shop.Domain.Models;
 using Auto_Shop.Domain.Models.DTOs;
 using MediatR;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Auto_Shop.Service.Queries.VehicleQueries
     public class GetAllVehiclesQuery : IRequest<IEnumerable<VehicleDTO>>
     {
         public string OrderBy { get; set; }
-        public EOrderType? OrderType { get; set; }
+        public VehicleFilters Filters { get; set; }
     }
 
     public class GetAllVehiclesQueryHandler : IRequestHandler<GetAllVehiclesQuery, IEnumerable<VehicleDTO>>
@@ -25,7 +26,7 @@ namespace Auto_Shop.Service.Queries.VehicleQueries
 
         public async Task<IEnumerable<VehicleDTO>> Handle(GetAllVehiclesQuery request, CancellationToken cancellationToken)
         {
-            return await _service.GetAllVehiclesAsync(request.OrderBy, request.OrderType);
+            return await _service.GetAllVehiclesAsync(request.OrderBy, request.Filters);
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Auto_Shop.Domain.Models;
+using System;
 
 namespace Auto_Shop.Infra.Data.Context
 {
     public static class AutoShopDbSeeder
     {
+        // TODO: UPDATE IMGS
         #region Brand Data
 
         public static Brand Ford = new Brand()
@@ -80,7 +82,7 @@ namespace Auto_Shop.Infra.Data.Context
             Km = "111.040", 
             Year = "2013/2014", 
             ImageUrl = "http://site.com.br", 
-            Model = "Sedã", 
+            Model = "Sedan", 
             Price = 71.900m 
         };
 
@@ -108,6 +110,26 @@ namespace Auto_Shop.Infra.Data.Context
             ImageUrl = "http://site.com.br",
             Model = "Sport Utility",
             Price = 121.000m
+        };
+
+        #endregion
+
+        #region Role Data
+
+        public static Role RoleAdmin = new Role()
+        {
+            RoleName = "ADMIN",
+        };
+
+        #endregion
+
+        #region User Data 
+
+        public static User UserAdmnistrator = new User()
+        {
+            Username = "adm@adm.com",
+            Password = "1AbYhcg*!@3",
+            RoleId = RoleAdmin.Id
         };
 
         #endregion

@@ -1,6 +1,5 @@
 ﻿using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
-using Auto_Shop.Service.Validators;
 using AutoMapper;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
@@ -67,7 +66,7 @@ namespace Auto_Shop.Service.Commands.VehicleCommands
 
         public async Task<Unit> Handle(UpdateVehicleCommand request, CancellationToken cancellationToken)
         {
-            await _service.UpdateAsync<VehicleValidator>(_mapper.Map<Vehicle>(request));
+            await _service.UpdateVehicleAsync(_mapper.Map<Vehicle>(request));
 
             return await Task.FromResult(Unit.Value);
         }

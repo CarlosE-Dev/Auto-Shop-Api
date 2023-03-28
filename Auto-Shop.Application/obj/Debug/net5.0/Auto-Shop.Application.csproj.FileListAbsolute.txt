@@ -30,7 +30,6 @@ C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Microsoft.IdentityModel.
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\MySqlConnector.dll
-C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -91,3 +90,11 @@ C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\k5sprt64.dll
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\krb5_64.dll
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\krbcc64.dll
 C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Auto-Shop.Infra.CrossCutting.dll
+C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Auto-Shop.Infra.CrossCutting.pdb
+C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\staticwebassets\Auto-Shop.Application.StaticWebAssets.Pack.cache
+C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\staticwebassets\msbuild.Auto-Shop.Application.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\staticwebassets\msbuild.build.Auto-Shop.Application.props
+C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Auto-Shop.Application.props
+C:\Dev\Auto-Shop\Auto-Shop.Application\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Auto-Shop.Application.props
+C:\Dev\Auto-Shop\Auto-Shop.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

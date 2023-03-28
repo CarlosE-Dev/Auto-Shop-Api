@@ -13,3 +13,5 @@ C:\Dev\Auto-Shop\Auto-Shop.Service\obj\Debug\net5.0\Auto-Shop.Service.dll
 C:\Dev\Auto-Shop\Auto-Shop.Service\obj\Debug\net5.0\refint\Auto-Shop.Service.dll
 C:\Dev\Auto-Shop\Auto-Shop.Service\obj\Debug\net5.0\Auto-Shop.Service.pdb
 C:\Dev\Auto-Shop\Auto-Shop.Service\obj\Debug\net5.0\ref\Auto-Shop.Service.dll
+C:\Dev\Auto-Shop\Auto-Shop.Service\bin\Debug\net5.0\Auto-Shop.Infra.CrossCutting.dll
+C:\Dev\Auto-Shop\Auto-Shop.Service\bin\Debug\net5.0\Auto-Shop.Infra.CrossCutting.pdb
