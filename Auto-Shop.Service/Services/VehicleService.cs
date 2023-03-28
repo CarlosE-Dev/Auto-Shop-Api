@@ -1,8 +1,6 @@
-﻿using Auto_Shop.Domain.Enums;
-using Auto_Shop.Domain.Interfaces;
+﻿using Auto_Shop.Domain.Interfaces;
 using Auto_Shop.Domain.Models;
 using Auto_Shop.Domain.Models.DTOs;
-using Auto_Shop.Infra.CrossCutting.Helpers;
 using Auto_Shop.Service.Validators;
 using FluentValidation;
 using System;

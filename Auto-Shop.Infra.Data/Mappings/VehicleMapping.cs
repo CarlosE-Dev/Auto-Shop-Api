@@ -27,11 +27,9 @@ namespace Auto_Shop.Infra.Data.Mappings
                     .IsRequired()
                         .HasMaxLength(50);
 
-            // TODO: insert a generic link for no img
-
             builder.Property(p => p.ImageUrl)
                     .HasMaxLength(500)
-                        .HasDefaultValue("http://");
+                        .HasDefaultValue("https://media.discordapp.net/attachments/1050461916474122251/1090388025021833286/image.png");
 
             builder.Property(p => p.City)
                     .IsRequired()

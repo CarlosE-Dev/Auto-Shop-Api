@@ -3,14 +3,16 @@ using System;
 using Auto_Shop.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Auto_Shop.Infra.Data.Migrations
 {
     [DbContext(typeof(AutoShopContext))]
-    partial class AutoShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230328212641_UpdatedInitialData")]
+    partial class UpdatedInitialData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,42 +48,42 @@ namespace Auto_Shop.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c6774b3e",
+                            Id = "33a344c7",
                             Description = "Ford Motor Company is an American multinational automobile manufacturer.",
                             ImageUrl = "http://site.com.br",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 162, DateTimeKind.Local).AddTicks(8754),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(4228),
                             Name = "Ford"
                         },
                         new
                         {
-                            Id = "4f2dfd40",
+                            Id = "d07ed587",
                             Description = "Honda Motor Co., Ltd. is a Japanese public multinational conglomerate manufacturer of automobiles.",
                             ImageUrl = "http://site.com.br",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 162, DateTimeKind.Local).AddTicks(9487),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(4959),
                             Name = "Honda"
                         },
                         new
                         {
-                            Id = "cf61fc5f",
+                            Id = "bb011c9d",
                             Description = "Toyota Motor Corporation is a Japanese multinational automotive manufacturer headquartered in Toyota City, Aichi, Japan.",
                             ImageUrl = "http://site.com.br",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 162, DateTimeKind.Local).AddTicks(9495),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(4967),
                             Name = "Toyota"
                         },
                         new
                         {
-                            Id = "cf6b1d3e",
+                            Id = "1de5a4df",
                             Description = "Fiat Automobiles S.p.A. is an Italian automobile manufacturer, formerly part of Fiat Chrysler Automobiles.",
                             ImageUrl = "http://site.com.br",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 162, DateTimeKind.Local).AddTicks(9499),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(4971),
                             Name = "Fiat"
                         },
                         new
                         {
-                            Id = "7db471fc",
+                            Id = "f5445a75",
                             Description = "Volkswagen AG, known internationally as the Volkswagen Group, is a German multinational automotive manufacturer.",
                             ImageUrl = "http://site.com.br",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 162, DateTimeKind.Local).AddTicks(9503),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(4975),
                             Name = "Volkswagen"
                         });
                 });
@@ -106,8 +108,8 @@ namespace Auto_Shop.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ec519658",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1637),
+                            Id = "e23a26a2",
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(7130),
                             RoleName = "ADMIN"
                         });
                 });
@@ -143,10 +145,10 @@ namespace Auto_Shop.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "47baf253",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1954),
+                            Id = "48454888",
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(7558),
                             Password = "1AbYhcg*!@3",
-                            RoleId = "ec519658",
+                            RoleId = "e23a26a2",
                             Username = "adm@adm.com"
                         });
                 });
@@ -169,7 +171,7 @@ namespace Auto_Shop.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)")
-                        .HasDefaultValue("https://media.discordapp.net/attachments/1050461916474122251/1090388025021833286/image.png");
+                        .HasDefaultValue("http://");
 
                     b.Property<string>("Km")
                         .IsRequired()
@@ -211,13 +213,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "eeb7c9d6",
-                            BrandId = "c6774b3e",
+                            Id = "1f3d32eb",
+                            BrandId = "33a344c7",
                             City = "São Paulo",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090383696936312873/Focus_2015.jpg?width=901&height=676",
                             Km = "69.752",
                             Model = "Sedan",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 162, DateTimeKind.Local).AddTicks(9677),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(5164),
                             Name = "Ford Focus",
                             Price = 62.900m,
                             State = "SP",
@@ -225,13 +227,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "8f75f59e",
-                            BrandId = "4f2dfd40",
+                            Id = "8102db8b",
+                            BrandId = "d07ed587",
                             City = "Rio de Janeiro",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090383697338962040/Civic_2020.jpg?width=901&height=676",
                             Km = "54.000",
                             Model = "Sedan",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1300),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6842),
                             Name = "Honda Civic",
                             Price = 135.000m,
                             State = "RJ",
@@ -239,13 +241,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "45d5272f",
-                            BrandId = "cf61fc5f",
+                            Id = "e9bafea1",
+                            BrandId = "bb011c9d",
                             City = "Niterói",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090383697737425016/Corolla_2014.jpg?width=901&height=676",
                             Km = "111.040",
                             Model = "Sedan",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1348),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6851),
                             Name = "Toyota Corolla",
                             Price = 71.900m,
                             State = "RJ",
@@ -253,13 +255,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "e588d0eb",
-                            BrandId = "cf6b1d3e",
+                            Id = "02a486a5",
+                            BrandId = "1de5a4df",
                             City = "Santos",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384159035367424/Uno_2015.jpg?width=901&height=676",
                             Km = "82.000",
                             Model = "Hatchback",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1352),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6856),
                             Name = "Fiat Uno",
                             Price = 42.990m,
                             State = "SP",
@@ -267,13 +269,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "62fa8fd2",
-                            BrandId = "7db471fc",
+                            Id = "a20650e9",
+                            BrandId = "f5445a75",
                             City = "Brasília",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384159349952572/Nivus_2020.jpg?width=901&height=676",
                             Km = "23.652",
                             Model = "Sport Utility",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1357),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6860),
                             Name = "Volkswagen Nivus",
                             Price = 121.000m,
                             State = "DF",
@@ -281,13 +283,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "adf55f88",
-                            BrandId = "c6774b3e",
+                            Id = "3b780597",
+                            BrandId = "33a344c7",
                             City = "São Paulo",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384159622574120/Maverick_2022.jpg?width=901&height=676",
                             Km = "28.652",
                             Model = "Pickup",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1394),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6865),
                             Name = "Ford Maverick",
                             Price = 241.000m,
                             State = "SP",
@@ -295,13 +297,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "8fff5eb6",
-                            BrandId = "c6774b3e",
+                            Id = "67a83f4e",
+                            BrandId = "33a344c7",
                             City = "Rio de Janeiro",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384541635579955/Territory_2020.jpg?width=901&height=676",
                             Km = "18.652",
                             Model = "Sport Utility",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1399),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6901),
                             Name = "Ford Territory",
                             Price = 150.000m,
                             State = "RJ",
@@ -309,13 +311,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "bc106379",
-                            BrandId = "4f2dfd40",
+                            Id = "45c3c0a3",
+                            BrandId = "d07ed587",
                             City = "Recife",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384541400703126/Hr-v_2017.jpg?width=901&height=676",
                             Km = "44.000",
                             Model = "Sport Utility",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1403),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6906),
                             Name = "Honda HR-V",
                             Price = 135.000m,
                             State = "PE",
@@ -323,13 +325,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "3f1f5735",
-                            BrandId = "4f2dfd40",
+                            Id = "5430af77",
+                            BrandId = "d07ed587",
                             City = "Niterói",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384541136453752/City_2019.jpg?width=901&height=676",
                             Km = "52.000",
                             Model = "Sedan",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1407),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6915),
                             Name = "Honda City",
                             Price = 91.000m,
                             State = "RJ",
@@ -337,13 +339,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "dfd13430",
-                            BrandId = "cf61fc5f",
+                            Id = "67835f4e",
+                            BrandId = "bb011c9d",
                             City = "São Gonçalo",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384776600489984/Yaris_2020.jpg?width=901&height=676",
                             Km = "25.000",
                             Model = "Sedan",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1414),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6919),
                             Name = "Toyota Yaris",
                             Price = 96.900m,
                             State = "RJ",
@@ -351,13 +353,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "d374ae9d",
-                            BrandId = "cf61fc5f",
+                            Id = "158c7878",
+                            BrandId = "bb011c9d",
                             City = "Diadema",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384776856359052/SW4_2017.jpg?width=901&height=676",
                             Km = "71.300",
                             Model = "Sport Utility",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1418),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6922),
                             Name = "Toyota Hilux SW4",
                             Price = 315.900m,
                             State = "SP",
@@ -365,13 +367,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "f15ba2cd",
-                            BrandId = "cf6b1d3e",
+                            Id = "7763331e",
+                            BrandId = "1de5a4df",
                             City = "Vitória",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384777124778054/Fiat_Bravo_2014.jpg?width=901&height=676",
                             Km = "140.000",
                             Model = "Hatchback",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1422),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6926),
                             Name = "Fiat Bravo",
                             Price = 43.700m,
                             State = "ES",
@@ -379,13 +381,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "127cdf6f",
-                            BrandId = "cf6b1d3e",
+                            Id = "2351e4ae",
+                            BrandId = "1de5a4df",
                             City = "Salvador",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384916266627082/Argo_2018.jpg?width=901&height=676",
                             Km = "71.000",
                             Model = "Hatchback",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1426),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6930),
                             Name = "Fiat Argo",
                             Price = 51.000m,
                             State = "BA",
@@ -393,13 +395,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "7278eaea",
-                            BrandId = "7db471fc",
+                            Id = "f38942b7",
+                            BrandId = "f5445a75",
                             City = "Natal",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384916543455242/Polo_2022.jpg",
                             Km = "5.000",
                             Model = "Hatchback",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1430),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6933),
                             Name = "Volkswagen Polo",
                             Price = 108.000m,
                             State = "RN",
@@ -407,13 +409,13 @@ namespace Auto_Shop.Infra.Data.Migrations
                         },
                         new
                         {
-                            Id = "0db3eb7c",
-                            BrandId = "7db471fc",
+                            Id = "e9ad663d",
+                            BrandId = "f5445a75",
                             City = "Vila Velha",
                             ImageUrl = "https://media.discordapp.net/attachments/1050461916474122251/1090384916744773695/Jetta_2017.jpg?width=901&height=676",
                             Km = "78.652",
                             Model = "Sedan",
-                            ModifiedOn = new DateTime(2023, 3, 28, 18, 34, 22, 163, DateTimeKind.Local).AddTicks(1434),
+                            ModifiedOn = new DateTime(2023, 3, 28, 18, 26, 41, 492, DateTimeKind.Local).AddTicks(6937),
                             Name = "Volkswagen Jetta",
                             Price = 92.000m,
                             State = "ES",

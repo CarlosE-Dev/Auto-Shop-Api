@@ -3,14 +3,16 @@ using System;
 using Auto_Shop.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Auto_Shop.Infra.Data.Migrations
 {
     [DbContext(typeof(AutoShopContext))]
-    partial class AutoShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230328213422_AddedImgLinkToSeedData")]
+    partial class AddedImgLinkToSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

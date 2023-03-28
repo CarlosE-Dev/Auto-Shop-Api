@@ -17,37 +17,7 @@ namespace Auto_Shop.Infra.Data.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AutoShopContext).Assembly);
 
-            #region Initial Data For DB
-
-            modelBuilder.Entity<Brand>()
-                .HasData(
-                    AutoShopDbSeeder.Ford, 
-                    AutoShopDbSeeder.Honda, 
-                    AutoShopDbSeeder.Toyota, 
-                    AutoShopDbSeeder.Fiat, 
-                    AutoShopDbSeeder.Volkswagen
-                );
-
-            modelBuilder.Entity<Vehicle>()
-                .HasData(
-                    AutoShopDbSeeder.Focus,
-                    AutoShopDbSeeder.Civic,
-                    AutoShopDbSeeder.Corolla,
-                    AutoShopDbSeeder.Uno,
-                    AutoShopDbSeeder.Nivus
-                );
-
-            modelBuilder.Entity<Role>()
-                .HasData(
-                    AutoShopDbSeeder.RoleAdmin
-                );
-
-            modelBuilder.Entity<User>()
-                .HasData(
-                    AutoShopDbSeeder.UserAdmnistrator
-                );
-
-            #endregion
+            AutoShopDbSeeder.SeedInitialData(modelBuilder);
         }
     }
 }

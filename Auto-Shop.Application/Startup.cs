@@ -29,28 +29,15 @@ namespace Auto_Shop.Application
             services.ResolveDependencies();
             services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddMediatR(typeof(BaseService<>).GetTypeInfo().Assembly);
-
             services.AddControllers();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Auto_Shop.Application v1"));
-            }
-
+            app.ConfigureEnv(env);
             app.UseHttpsRedirection();
             app.UseRouting();
             app.ConfigureGlobalization();
-
-            app.UseCors(x => x
-                .AllowAnyMethod()
-                    .AllowAnyHeader()
-                        .SetIsOriginAllowed(origin => true)
-                            .AllowCredentials());
-
+            app.ConfigureCors();
             app.UseAuthentication();
             app.UseAuthorization();
 

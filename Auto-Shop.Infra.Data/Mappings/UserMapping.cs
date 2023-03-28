@@ -11,10 +11,12 @@ namespace Auto_Shop.Infra.Data.Mappings
             builder.ToTable("AS_USERS");
 
             builder.HasKey(k => k.Id);
-
+            
             builder.Property(p => p.Username)
-                    .IsRequired()
-                        .HasMaxLength(50);
+                .IsRequired()
+                    .HasMaxLength(50);
+
+            builder.HasIndex(u => u.Username).IsUnique();
 
             builder.Property(p => p.Password)
                     .IsRequired()

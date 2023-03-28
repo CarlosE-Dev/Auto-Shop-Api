@@ -17,12 +17,12 @@ namespace Auto_Shop.Infra.Data.Repositories
 
         public async Task<Role> GetRoleByIdAsync(string roleId)
         {
-            return await _context.Set<Role>().Where(x => x.Id == roleId).FirstOrDefaultAsync();
+            return await _context.Set<Role>().Where(r => r.Id == roleId).FirstOrDefaultAsync();
         }
 
         public async Task<User> GetUserByUsername(string username)
         {
-            return await _context.Set<User>().Where(x => x.Username == username).FirstOrDefaultAsync();
+            return await _context.Set<User>().Where(u => u.Username == username).FirstOrDefaultAsync();
         }
     }
 }
